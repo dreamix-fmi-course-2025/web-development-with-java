@@ -700,9 +700,6 @@ public class ListExample {
 
 </details>
 
-Here’s the markdown solution for the task:
-
-
 # Task 10: Count the Number of Key-Value Mappings in a Map
 
 ## Problem Statement

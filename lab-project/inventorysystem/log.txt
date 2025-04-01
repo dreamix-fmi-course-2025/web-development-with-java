@@ -1,0 +1,102 @@
+Tue Apr 01 19:20:18 EEST 2025 [INFO] - Item: RC Car, Quantity: 5
+Tue Apr 01 19:20:18 EEST 2025 [INFO] - Item: Battery Pack, Quantity: 10
+Tue Apr 01 19:20:18 EEST 2025 [INFO] - Item: RC Car, Quantity: 8
+Tue Apr 01 19:20:18 EEST 2025 [INFO] - Item: Battery Pack, Quantity: 10
+Tue Apr 01 19:26:05 EEST 2025 [INFO] - 🚀 Application started successfully!
+Tue Apr 01 19:26:05 EEST 2025 [INFO] - java.lang.IllegalArgumentException: Serial number S1231 already in DB
+Tue Apr 01 19:26:05 EEST 2025 [INFO] - ---------------------------------------
+Tue Apr 01 19:26:05 EEST 2025 [INFO] - ✅ Inventory items added successfully!
+Tue Apr 01 19:26:05 EEST 2025 [INFO] - ---------------------------------------
+Tue Apr 01 19:26:05 EEST 2025 [INFO] - 📌 Displaying all inventory items:
+Tue Apr 01 19:26:05 EEST 2025 [INFO] - Item: RC Car, Quantity: 5
+Tue Apr 01 19:26:05 EEST 2025 [INFO] - Item: Battery Pack, Quantity: 10
+Tue Apr 01 19:26:05 EEST 2025 [INFO] - ---------------------------------------
+Tue Apr 01 19:26:05 EEST 2025 [INFO] - 🔄 Updating 'RC Car' quantity to 8...
+Tue Apr 01 19:26:05 EEST 2025 [INFO] - ---------------------------------------
+Tue Apr 01 19:26:05 EEST 2025 [INFO] - 📌 Displaying updated inventory items:
+Tue Apr 01 19:26:05 EEST 2025 [INFO] - Item: RC Car, Quantity: 8
+Tue Apr 01 19:26:05 EEST 2025 [INFO] - Item: Battery Pack, Quantity: 10
+Tue Apr 01 19:26:05 EEST 2025 [INFO] - ---------------------------------------
+Tue Apr 01 19:26:05 EEST 2025 [INFO] - 📌 Displaying all low stock items:
+Tue Apr 01 19:26:05 EEST 2025 [INFO] - ---------------------------------------
+Tue Apr 01 19:29:21 EEST 2025 [INFO] - 🚀 Application started successfully!
+Tue Apr 01 19:29:21 EEST 2025 [INFO] - java.lang.IllegalArgumentException: Serial number S1231 already in DB
+Tue Apr 01 19:29:21 EEST 2025 [INFO] - ---------------------------------------
+Tue Apr 01 19:29:21 EEST 2025 [INFO] - ✅ Inventory items added successfully!
+Tue Apr 01 19:29:21 EEST 2025 [INFO] - ---------------------------------------
+Tue Apr 01 19:29:21 EEST 2025 [INFO] - 📌 Displaying all inventory items:
+Tue Apr 01 19:29:21 EEST 2025 [INFO] - Item: RC Car, Quantity: 5
+Tue Apr 01 19:29:21 EEST 2025 [INFO] - Item: Battery Pack, Quantity: 10
+Tue Apr 01 19:29:21 EEST 2025 [INFO] - ---------------------------------------
+Tue Apr 01 19:29:21 EEST 2025 [INFO] - 🔄 Updating 'RC Car' quantity to 8...
+Tue Apr 01 19:29:21 EEST 2025 [DEBUG] - Item updated successfully.
+Tue Apr 01 19:29:21 EEST 2025 [INFO] - ---------------------------------------
+Tue Apr 01 19:29:21 EEST 2025 [INFO] - 📌 Displaying updated inventory items:
+Tue Apr 01 19:29:21 EEST 2025 [INFO] - Item: RC Car, Quantity: 8
+Tue Apr 01 19:29:21 EEST 2025 [INFO] - Item: Battery Pack, Quantity: 10
+Tue Apr 01 19:29:21 EEST 2025 [INFO] - ---------------------------------------
+Tue Apr 01 19:29:21 EEST 2025 [INFO] - 📌 Displaying all low stock items:
+Tue Apr 01 19:29:21 EEST 2025 [INFO] - InventoryItem{id=1, name='RC Car', description='High-speed remote control car', quantity=8, unitOfMeasurement='pcs', category='Vehicles', borrowable=true, addedDate=2025-04-01T19:29:21.002624}
+Tue Apr 01 19:29:21 EEST 2025 [INFO] - ---------------------------------------
+Tue Apr 01 19:43:34 EEST 2025 [INFO] - 🚀 Application started successfully!
+Tue Apr 01 19:43:34 EEST 2025 [INFO] - java.lang.IllegalArgumentException: Serial number S1231 already in DB
+Tue Apr 01 19:43:34 EEST 2025 [INFO] - ---------------------------------------
+Tue Apr 01 19:43:34 EEST 2025 [INFO] - ✅ Inventory items added successfully!
+Tue Apr 01 19:43:34 EEST 2025 [INFO] - ---------------------------------------
+Tue Apr 01 19:43:34 EEST 2025 [INFO] - 📌 Displaying all inventory items:
+Tue Apr 01 19:43:34 EEST 2025 [INFO] - Item: RC Car, Quantity: 5
+Tue Apr 01 19:43:34 EEST 2025 [INFO] - Item: Battery Pack, Quantity: 10
+Tue Apr 01 19:43:34 EEST 2025 [INFO] - ---------------------------------------
+Tue Apr 01 19:43:34 EEST 2025 [INFO] - 🔄 Updating 'RC Car' quantity to 8...
+Tue Apr 01 19:43:34 EEST 2025 [DEBUG] - Item updated successfully.
+Tue Apr 01 19:43:34 EEST 2025 [INFO] - ---------------------------------------
+Tue Apr 01 19:43:34 EEST 2025 [INFO] - 📌 Displaying updated inventory items:
+Tue Apr 01 19:43:34 EEST 2025 [INFO] - Item: RC Car, Quantity: 8
+Tue Apr 01 19:43:34 EEST 2025 [INFO] - Item: Battery Pack, Quantity: 10
+Tue Apr 01 19:43:34 EEST 2025 [INFO] - ---------------------------------------
+Tue Apr 01 19:43:34 EEST 2025 [INFO] - 📌 Displaying all low stock items:
+Tue Apr 01 19:43:34 EEST 2025 [INFO] - Low-stock value used: lowStockThreshold -> 7
+Tue Apr 01 19:43:34 EEST 2025 [INFO] - Low-stock value used: appConfig.getInventory().getLowStockThreshold() -> 7
+Tue Apr 01 19:43:34 EEST 2025 [INFO] - ---------------------------------------
+Tue Apr 01 19:44:27 EEST 2025 [INFO] - 🚀 Application started successfully!
+Tue Apr 01 19:44:27 EEST 2025 [INFO] - java.lang.IllegalArgumentException: Serial number S1231 already in DB
+Tue Apr 01 19:44:27 EEST 2025 [INFO] - ---------------------------------------
+Tue Apr 01 19:44:27 EEST 2025 [INFO] - ✅ Inventory items added successfully!
+Tue Apr 01 19:44:27 EEST 2025 [INFO] - ---------------------------------------
+Tue Apr 01 19:44:27 EEST 2025 [INFO] - 📌 Displaying all inventory items:
+Tue Apr 01 19:44:27 EEST 2025 [INFO] - Item: RC Car, Quantity: 5
+Tue Apr 01 19:44:27 EEST 2025 [INFO] - Item: Battery Pack, Quantity: 10
+Tue Apr 01 19:44:27 EEST 2025 [INFO] - ---------------------------------------
+Tue Apr 01 19:44:27 EEST 2025 [INFO] - 🔄 Updating 'RC Car' quantity to 8...
+Tue Apr 01 19:44:27 EEST 2025 [DEBUG] - Item updated successfully.
+Tue Apr 01 19:44:27 EEST 2025 [INFO] - ---------------------------------------
+Tue Apr 01 19:44:27 EEST 2025 [INFO] - 📌 Displaying updated inventory items:
+Tue Apr 01 19:44:27 EEST 2025 [INFO] - Item: RC Car, Quantity: 8
+Tue Apr 01 19:44:27 EEST 2025 [INFO] - Item: Battery Pack, Quantity: 10
+Tue Apr 01 19:44:27 EEST 2025 [INFO] - ---------------------------------------
+Tue Apr 01 19:44:27 EEST 2025 [INFO] - 📌 Displaying all low stock items:
+Tue Apr 01 19:44:27 EEST 2025 [INFO] - Low-stock value used: lowStockThreshold -> 7
+Tue Apr 01 19:44:27 EEST 2025 [INFO] - Low-stock value used: appConfig.getInventory().getLowStockThreshold() -> 7
+Tue Apr 01 19:44:27 EEST 2025 [INFO] - ---------------------------------------
+Tue Apr 01 19:44:38 EEST 2025 [INFO] - 🚀 Application started successfully!
+Tue Apr 01 19:44:38 EEST 2025 [INFO] - java.lang.IllegalArgumentException: Serial number S1231 already in DB
+Tue Apr 01 19:44:38 EEST 2025 [INFO] - ---------------------------------------
+Tue Apr 01 19:44:38 EEST 2025 [INFO] - ✅ Inventory items added successfully!
+Tue Apr 01 19:44:38 EEST 2025 [INFO] - ---------------------------------------
+Tue Apr 01 19:44:38 EEST 2025 [INFO] - 📌 Displaying all inventory items:
+Tue Apr 01 19:44:38 EEST 2025 [INFO] - Item: RC Car, Quantity: 5
+Tue Apr 01 19:44:38 EEST 2025 [INFO] - Item: Battery Pack, Quantity: 10
+Tue Apr 01 19:44:38 EEST 2025 [INFO] - ---------------------------------------
+Tue Apr 01 19:44:38 EEST 2025 [INFO] - 🔄 Updating 'RC Car' quantity to 8...
+Tue Apr 01 19:44:38 EEST 2025 [DEBUG] - Item updated successfully.
+Tue Apr 01 19:44:38 EEST 2025 [INFO] - ---------------------------------------
+Tue Apr 01 19:44:38 EEST 2025 [INFO] - 📌 Displaying updated inventory items:
+Tue Apr 01 19:44:38 EEST 2025 [INFO] - Item: RC Car, Quantity: 8
+Tue Apr 01 19:44:38 EEST 2025 [INFO] - Item: Battery Pack, Quantity: 10
+Tue Apr 01 19:44:38 EEST 2025 [INFO] - ---------------------------------------
+Tue Apr 01 19:44:38 EEST 2025 [INFO] - 📌 Displaying all low stock items:
+Tue Apr 01 19:44:38 EEST 2025 [INFO] - Low-stock value used: lowStockThreshold -> 15
+Tue Apr 01 19:44:38 EEST 2025 [INFO] - Low-stock value used: appConfig.getInventory().getLowStockThreshold() -> 15
+Tue Apr 01 19:44:38 EEST 2025 [INFO] - InventoryItem{id=1, name='RC Car', description='High-speed remote control car', quantity=8, unitOfMeasurement='pcs', category='Vehicles', borrowable=true, addedDate=2025-04-01T19:44:38.901332900}
+Tue Apr 01 19:44:38 EEST 2025 [INFO] - InventoryItem{id=2, name='Battery Pack', description='Rechargeable battery', quantity=10, unitOfMeasurement='pcs', category='Accessories', borrowable=true, addedDate=2025-04-01T19:44:38.901332900}
+Tue Apr 01 19:44:38 EEST 2025 [INFO] - ---------------------------------------

@@ -36,16 +36,16 @@ In the next task we will use our Inventory system. (you can use implementation f
 8. Call every endpoint from Postman
 
 ## Part 02
-1. Expose every **GET** functionality from the InventoryItem/RaceEventManagement service as web REST endpoint.
+1. Expose every **GET** functionality from the InventoryItem service as web REST endpoint.
    In the next points we will define steps for shaping the REST endpoint (ex for InventoryItem)
     - first we need to define structure for our REST API
-        - path -> localhost:8080/inventory/items
+        - path -> localhost:8080/items
     - getAllEvents - as the name says we are fetching the events without any condition.
-        - path -> localhost:8080/inventory/items
+        - path -> localhost:8080/items
         - HTTP method -> GET (we get resource)
         - Returned Code 200 (OK)
     - getItemById - get item by it's identifier
-        - path -> localhost:8080/inventory/items/{id}
+        - path -> localhost:8080/items/{id}
         - HTTP method -> GET (we will get information again)
         - patch param
         - Returned Code 200 OK

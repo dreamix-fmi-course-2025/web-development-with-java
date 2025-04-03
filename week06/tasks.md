@@ -40,10 +40,6 @@ In the next task we will use our Inventory system. (you can use implementation f
    In the next points we will define steps for shaping the REST endpoint (ex for InventoryItem)
     - first we need to define structure for our REST API
         - path -> localhost:8080/items
-    - getAllEvents - as the name says we are fetching the events without any condition.
-        - path -> localhost:8080/items
-        - HTTP method -> GET (we get resource)
-        - Returned Code 200 (OK)
     - getItemById - get item by it's identifier
         - path -> localhost:8080/items/{id}
         - HTTP method -> GET (we will get information again)

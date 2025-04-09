@@ -84,8 +84,8 @@ public class InventorysystemApplication implements CommandLineRunner {
 		clubMemberRepository.addMember(member);
 
 		// Fetch item for transaction
-		Optional<InventoryItem> item1 = inventoryItemService.getItemById(1);
-		Optional<InventoryItem> item2 = inventoryItemService.getItemById(2);
+		Optional<InventoryItem> item1 = inventoryItemService.getItemEntityById(1);
+		Optional<InventoryItem> item2 = inventoryItemService.getItemEntityById(2);
 
 		// Create upcoming due transaction (e.g., due in 2 days)
 		if (item1.isPresent()) {

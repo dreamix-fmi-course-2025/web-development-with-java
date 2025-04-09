@@ -3,6 +3,10 @@ package bg.fmi.uni.inventorysystem.service;
 
 import bg.fmi.uni.inventorysystem.config.AppConfig;
 import bg.fmi.uni.inventorysystem.config.logger.Logger;
+import bg.fmi.uni.inventorysystem.dto.InventoryItemDto;
+import bg.fmi.uni.inventorysystem.dto.InventoryItemPatchRequest;
+import bg.fmi.uni.inventorysystem.dto.InventoryItemRequest;
+import bg.fmi.uni.inventorysystem.exception.ItemNotFoundException;
 import bg.fmi.uni.inventorysystem.model.InventoryItem;
 import bg.fmi.uni.inventorysystem.repository.InventoryItemRepository;
 import lombok.RequiredArgsConstructor;
@@ -28,12 +32,19 @@ public class InventoryItemService {
     @Value("${config.inventory.low-stock-threshold:10}")
     private Integer lowStockThreshold;
 
+    @Deprecated
+    public List<InventoryItem> getAllItemsEntity() {
+        return itemRepository.getAllItems();
+    }
+
     /**
      * Retrieves all inventory items.
      * @return List of all items in inventory.
      */
-    public List<InventoryItem> getAllItems() {
-        return itemRepository.getAllItems();
+    public List<InventoryItemDto> getAllItems() {
+        return itemRepository.getAllItems().stream()
+                .map(InventoryItemDto::fromEntity)
+                .collect(Collectors.toList());
     }
 
     /**
@@ -88,13 +99,84 @@ public class InventoryItemService {
         return false;
     }
 
+    @Deprecated
+    public Optional<InventoryItem> getItemEntityById(Integer id) {
+        return itemRepository.getItemById(id);
+    }
+
+
     /**
      * Retrieves an inventory item by its ID.
      * @param id The ID of the item to fetch.
      * @return Optional containing the item if found, or empty otherwise.
      */
-    public Optional<InventoryItem> getItemById(Integer id) {
-        logger.debug("getItemById called with ID: " + id);
-        return itemRepository.getItemById(id);
+    public Optional<InventoryItemDto> getItemById(Integer id) {
+        return itemRepository.getItemById(id)
+                .map(InventoryItemDto::fromEntity);
+    }
+
+
+    public InventoryItemDto createItem(InventoryItemRequest request) {
+        InventoryItem item = new InventoryItem(
+                request.name(),
+                request.description(),
+                request.quantity(),
+                request.serialNumber(),
+                request.unitOfMeasurement(),
+                request.category(),
+                request.borrowable()
+        );
+        itemRepository.addItem(item);
+        return InventoryItemDto.fromEntity(item);
+    }
+
+    public InventoryItemDto upsertItem(Integer id, InventoryItemRequest request) {
+        Optional<InventoryItem> existing = itemRepository.getItemById(id);
+
+        InventoryItem item;
+        if (existing.isPresent()) {
+            item = existing.get();
+            item.setName(request.name());
+            item.setDescription(request.description());
+            item.setQuantity(request.quantity());
+            item.setCategory(request.category());
+            item.setBorrowable(request.borrowable());
+
+            logger.debug("Existing item found with id " + id + ". Updating item based on the provided request");
+            itemRepository.updateItem(item);
+        } else {
+            item = new InventoryItem(
+                    request.name(), request.description(), request.quantity(),
+                    request.serialNumber(), request.unitOfMeasurement(),
+                    request.category(), request.borrowable()
+            );
+            logger.debug("No existing item found with id " + id + ". Creating new one");
+            itemRepository.addItem(item);
+        }
+        return InventoryItemDto.fromEntity(item);
+    }
+
+    public Optional<InventoryItemDto> patchItem(Integer id, InventoryItemPatchRequest patchRequest) {
+        Optional<InventoryItem> optionalItem = itemRepository.getItemById(id);
+        if (optionalItem.isEmpty()) {
+            throw new ItemNotFoundException(id);
+        }
+
+        InventoryItem item = optionalItem.get();
+
+        patchRequest.getName().ifPresent(item::setName);
+        patchRequest.getDescription().ifPresent(item::setDescription);
+        patchRequest.getQuantity().ifPresent(item::setQuantity);
+        patchRequest.getCategory().ifPresent(item::setCategory);
+        patchRequest.getBorrowable().ifPresent(item::setBorrowable);
+
+        itemRepository.updateItem(item);
+
+        return Optional.of(InventoryItemDto.fromEntity(item));
+    }
+
+    // we can directly throw exception if element is not present or reuse the boolean flag in upper layer
+    public boolean deleteItem(Integer id) {
+        return itemRepository.deleteItemById(id);
     }
 }

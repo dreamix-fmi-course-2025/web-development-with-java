@@ -1,6 +1,7 @@
 package bg.fmi.uni.inventorysystem.repository;
 
 import bg.fmi.uni.inventorysystem.model.InventoryItem;
+import bg.fmi.uni.inventorysystem.repository.sequence.InventoryItemSequence;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
@@ -21,6 +22,7 @@ public class InventoryItemRepository {
         if (itemTable.values().stream().anyMatch(el -> el.getSerialNumber().equals(item.getSerialNumber()))) {
             throw new IllegalArgumentException(String.format("Serial number %s already in DB", item.getSerialNumber()));
         }
+        item.setId(InventoryItemSequence.getNextValue());
         itemTable.put(item.getId(), item);
     }
 

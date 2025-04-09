@@ -9,7 +9,7 @@ https://www.baeldung.com/spring-boot-change-port
 ## Task 01
 Expose CRUD (Create/Read/Update/Delete) functionalities related to the Inventory Item Domain
 
-Exampled Postman Collection can be found -> [collection](./Inventory Item API.postman_collection)
+Exampled Postman Collection can be found -> [collection](https://github.com/dreamix-fmi-course-2025/web-development-with-java/blob/main/week07/Inventory%20Item%20API.postman_collection.json)
 
 ## Task 02
 Create Exception Handler for the Rest Controller (@ControllerAdvice)

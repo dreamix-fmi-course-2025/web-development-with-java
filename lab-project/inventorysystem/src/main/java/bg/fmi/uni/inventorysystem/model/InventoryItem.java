@@ -1,9 +1,11 @@
 package bg.fmi.uni.inventorysystem.model;
 
+import lombok.Setter;
+
 import java.time.LocalDateTime;
 
+@Setter
 public class InventoryItem {
-    private static int idCounter = 1;
 
     private Integer id;
     private String name;
@@ -17,7 +19,6 @@ public class InventoryItem {
     private LocalDateTime addedDate;
 
     public InventoryItem(String name, String description, int quantity, String serialNumber, String unit, String category, boolean borrowable) {
-        this.id = idCounter++;
         this.name = name;
         this.description = description;
         this.quantity = quantity;

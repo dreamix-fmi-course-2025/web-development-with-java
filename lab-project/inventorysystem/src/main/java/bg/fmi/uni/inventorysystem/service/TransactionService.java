@@ -17,7 +17,10 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
+
+import static java.util.Objects.isNull;
 
 @Service
 @RequiredArgsConstructor
@@ -104,16 +107,18 @@ public class TransactionService {
         LocalDate today = LocalDate.now();
         int reminderWindow = appConfig.getTransaction().getReminderSafetyWindowDays();
 
+        Predicate<Transaction> notReturned     = t -> isNull(t.getReturnedDate());
+        Predicate<Transaction> isBorrowable    = t -> t.getItem().isBorrowable();
+        Predicate<Transaction> dueWithinWindow = t -> {
+            long daysUntilDue = ChronoUnit.DAYS.between(today, t.getDueDate().toLocalDate());
+            return daysUntilDue >= 0 && daysUntilDue <= reminderWindow;
+        };
+
         // usually you will prefer for the DB to calculate the result, for lab purposes we will query for all Transactions
         List<TransactionDto> soonDue = transactionRepository.findAll().stream()
-                .filter(t -> t.getReturnedDate() == null)
-                .filter(t -> t.getItem().isBorrowable())
-                .filter(t -> {
-                    long daysUntilDue = ChronoUnit.DAYS.between(today, t.getDueDate().toLocalDate());
-                    return daysUntilDue >= 0 && daysUntilDue <= reminderWindow;
-                })
+                .filter(notReturned.and(isBorrowable).and(dueWithinWindow))
                 .map(TransactionDto::fromEntity)
-                .collect(Collectors.toList());
+                .toList();
         if (soonDue.isEmpty()) {
             logger.info("No upcoming due transactions found.");
         } else {

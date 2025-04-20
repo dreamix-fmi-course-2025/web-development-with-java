@@ -1,3 +1,5 @@
+-- Flyway migration: Seed initial data
+
 -- Insert initial ClubMembers
 INSERT INTO club_member (first_name, last_name, email, phone_number) VALUES
   ('John', 'Doe', 'john.doe@example.com', '+359888111222'),

@@ -1,8 +1,6 @@
--- Create table for ClubMember
-DROP TABLE IF EXISTS transaction;
-DROP TABLE IF EXISTS inventory_item;
-DROP TABLE IF EXISTS club_member;
+-- Flyway migration: Initial schema only
 
+-- Create table for ClubMember
 CREATE TABLE IF NOT EXISTS club_member (
     id SERIAL PRIMARY KEY,
     first_name VARCHAR(255) NOT NULL,
@@ -34,7 +32,6 @@ CREATE TABLE IF NOT EXISTS transaction (
     quantity_used INTEGER NOT NULL,
     returned_date TIMESTAMP
 );
-
 
 -- Add indexes for performance
 CREATE INDEX IF NOT EXISTS idx_transaction_member_id ON transaction(member_id);

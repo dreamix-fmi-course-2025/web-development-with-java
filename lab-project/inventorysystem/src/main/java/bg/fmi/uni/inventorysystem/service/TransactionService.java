@@ -107,6 +107,7 @@ public class TransactionService {
         // usually you will prefer for the DB to calculate the result, for lab purposes we will query for all Transactions
         List<TransactionDto> soonDue = transactionRepository.findAll().stream()
                 .filter(t -> t.getReturnedDate() == null)
+                .filter(t -> t.getItem().isBorrowable())
                 .filter(t -> {
                     long daysUntilDue = ChronoUnit.DAYS.between(today, t.getDueDate().toLocalDate());
                     return daysUntilDue >= 0 && daysUntilDue <= reminderWindow;

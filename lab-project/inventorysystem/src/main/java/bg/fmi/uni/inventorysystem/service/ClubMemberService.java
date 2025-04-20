@@ -31,8 +31,10 @@ public class ClubMemberService {
 
     public ClubMemberDto createMember(ClubMemberDto dto) {
         ClubMember member = ClubMember.builder()
-                .firstName(dto.name())
+                .firstName(dto.firstName())
+                .lastName(dto.lastName())
                 .email(dto.email())
+                .phoneNumber(dto.phone())
                 .build();
         ClubMember saved = clubMemberRepository.save(member);
         return ClubMemberDto.fromEntity(saved);
@@ -42,7 +44,8 @@ public class ClubMemberService {
         Optional<ClubMember> opt = clubMemberRepository.findById(id);
         if (opt.isPresent()) {
             ClubMember member = opt.get();
-            member.setFirstName(dto.name());
+            member.setFirstName(dto.firstName());
+member.setLastName(dto.lastName());
             member.setEmail(dto.email());
             ClubMember updated = clubMemberRepository.save(member);
             return Optional.of(ClubMemberDto.fromEntity(updated));

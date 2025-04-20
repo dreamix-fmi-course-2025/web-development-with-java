@@ -1,6 +1,7 @@
 package bg.fmi.uni.inventorysystem.dto;
 
 import bg.fmi.uni.inventorysystem.model.InventoryItem;
+import lombok.Getter;
 
 import java.time.LocalDateTime;
 

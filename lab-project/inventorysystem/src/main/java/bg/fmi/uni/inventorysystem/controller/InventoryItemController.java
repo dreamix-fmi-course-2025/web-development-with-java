@@ -61,7 +61,7 @@ public class InventoryItemController {
                                                        @Valid @RequestBody InventoryItemRequest request) {
         logger.info("Update Item with id: " + id);
         InventoryItemDto result = inventoryItemService.upsertItem(id, request);
-        return ResponseEntity.ok(result);
+        return result.id() == id ? ResponseEntity.ok(result) : new ResponseEntity<>(result, HttpStatus.CREATED);
     }
 
     @PatchMapping("/{id}")

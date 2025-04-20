@@ -33,7 +33,11 @@ public class Transaction {
         this.member = member;
         this.item = item;
         this.transactionDate = LocalDateTime.now();
-        this.dueDate = transactionDate.plusDays(days);
+        if (item.isBorrowable()) {
+            this.dueDate = transactionDate.plusDays(days);
+        } else {
+            this.dueDate = null;
+        }
         this.quantityUsed = quantityUsed;
         this.returnedDate = null;
     }

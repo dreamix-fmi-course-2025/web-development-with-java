@@ -26,8 +26,8 @@ public record InventoryItemDto(
                 item.getDescription(),
                 item.getQuantity(),
                 item.getSerialNumber(),
-                item.getUnitOfMeasurement(),
-                item.getCategory(),
+                item.getUnitOfMeasurement() != null ? item.getUnitOfMeasurement().name() : null,
+                item.getCategory() != null ? item.getCategory().name() : null,
                 item.isBorrowable(),
                 item.getAddedDate()
         );

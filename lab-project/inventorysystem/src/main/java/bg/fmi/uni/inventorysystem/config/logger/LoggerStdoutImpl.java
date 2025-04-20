@@ -2,16 +2,13 @@ package bg.fmi.uni.inventorysystem.config.logger;
 
 import bg.fmi.uni.inventorysystem.config.AppConfig;
 import bg.fmi.uni.inventorysystem.vo.LoggerLevel;
+
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Date;
 
 @Profile("local")

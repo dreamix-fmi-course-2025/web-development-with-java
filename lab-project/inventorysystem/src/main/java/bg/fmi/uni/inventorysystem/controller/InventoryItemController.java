@@ -6,23 +6,22 @@ import bg.fmi.uni.inventorysystem.dto.InventoryItemDto;
 import bg.fmi.uni.inventorysystem.dto.InventoryItemPatchRequest;
 import bg.fmi.uni.inventorysystem.dto.InventoryItemRequest;
 import bg.fmi.uni.inventorysystem.exception.ItemNotFoundException;
-import bg.fmi.uni.inventorysystem.model.InventoryItem;
 import bg.fmi.uni.inventorysystem.service.InventoryItemService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.*;
 
+import org.springframework.web.bind.annotation.*;
 import java.util.List;
-import java.util.Optional;
+
+
 
 /**
  * Controller for inventory operations.
  */
 @RestController
-@RequestMapping("/api/items") // UPDATED
+@RequestMapping("/api/items")
 @RequiredArgsConstructor
 public class InventoryItemController {
     private final InventoryItemService inventoryItemService;
@@ -33,46 +32,13 @@ public class InventoryItemController {
      */
     @GetMapping
     public List<InventoryItemDto> getAllItems() {
-        List<InventoryItem> items = inventoryItemService.getAllItemsEntity();
+        List<InventoryItemDto> items = inventoryItemService.getAllItems();
         if (items.isEmpty()) {
             logger.info("No inventory items available.");
         } else {
-            items.forEach(item -> logger.info("Item: " + item.getName() + ", Quantity: " + item.getQuantity()));
+            items.forEach(item -> logger.info("Item: " + item.name() + ", Quantity: " + item.quantity()));
         }
-        return items.stream().map(InventoryItemDto::fromEntity).toList();
-    }
-
-    @Deprecated
-    public void displayAllItems() {
-        List<InventoryItem> items = inventoryItemService.getAllItemsEntity();
-        if (items.isEmpty()) {
-            logger.info("No inventory items available.");
-        } else {
-            items.forEach(item -> logger.info("Item: " + item.getName() + ", Quantity: " + item.getQuantity()));
-        }
-    }
-
-    @Deprecated
-//    @GetMapping("{id}")
-    public ResponseEntity<InventoryItemDto> getItemByIdWithAdditionalReturn(@PathVariable int id) {
-        Optional<InventoryItem> item = inventoryItemService.getItemEntityById(id);
-        return item.map(inventoryItem -> ResponseEntity.ok(InventoryItemDto.fromEntity(inventoryItem)))
-                .orElseGet(() -> new ResponseEntity<> (HttpStatus.NOT_FOUND));
-    }
-
-    @Deprecated
-    public List<InventoryItem> getLowStockItems() {
-        return inventoryItemService.getLowStockItems();
-    }
-
-    @Deprecated
-    public void updateItem(Integer id, String name, String description, int quantity, String category, boolean borrowable) {
-        boolean success = inventoryItemService.updateItem(id, name, description, quantity, category, borrowable);
-        if (success) {
-            logger.debug("Item updated successfully.");
-        } else {
-            logger.error("Update failed. Item not found.");
-        }
+        return items;
     }
 
     @GetMapping("/{id}")

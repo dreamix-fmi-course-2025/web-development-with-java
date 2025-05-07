@@ -1,0 +1,41 @@
+# Java & Maven
+/target/
+*.class
+*.jar
+*.war
+*.ear
+
+# IntelliJ IDEA
+.idea/
+*.iml
+out/
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment
+.env
+
+# Database
+*.h2.db
+*.mv.db
+
+# Flyway
+flyway.conf
+
+# Misc
+*.swp
+
+# Exclude generated files
+/build/
+/node_modules/
+
+# Ignore sensitive files
+application-local.properties

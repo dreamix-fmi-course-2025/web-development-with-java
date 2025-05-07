@@ -1,0 +1,259 @@
+{
+  "info": {
+    "_postman_id": "inventorysystem-collection",
+    "name": "InventorySystem API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Inventory Items",
+      "item": [
+        {
+          "name": "Get All Inventory Items",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/items",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "items"]
+            }
+          }
+        },
+        {
+          "name": "Get Inventory Item By ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/items/{{itemId}}",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "items", "{{itemId}}"]
+            }
+          }
+        },
+        {
+          "name": "Create Inventory Item",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Sample Item\",\n  \"description\": \"A sample item\",\n  \"quantity\": 10,\n  \"serialNumber\": \"SN0000\",\n  \"unitOfMeasurement\": \"PIECE\",\n  \"category\": \"ACCESSORY\",\n  \"borrowable\": true\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/api/items",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "items"]
+            }
+          }
+        },
+        {
+          "name": "Update Inventory Item",
+          "request": {
+            "method": "PUT",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Updated Item\",\n  \"description\": \"Updated description\",\n  \"quantity\": 5,\n  \"serialNumber\": \"SN0001\",\n  \"unitOfMeasurement\": \"SET\",\n  \"category\": \"TOOL\",\n  \"borrowable\": false\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/api/items/{{itemId}}",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "items", "{{itemId}}"]
+            }
+          }
+        },
+        {
+          "name": "Patch Inventory Item",
+          "request": {
+            "method": "PATCH",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"quantity\": 20\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/api/items/{{itemId}}",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "items", "{{itemId}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Inventory Item",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/items/{{itemId}}",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "items", "{{itemId}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Club Members",
+      "item": [
+        {
+          "name": "Get All Club Members",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/club-members",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "club-members"]
+            }
+          }
+        },
+        {
+          "name": "Get Club Member By ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/club-members/{{memberId}}",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "club-members", "{{memberId}}"]
+            }
+          }
+        },
+        {
+          "name": "Create Club Member",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"email\": \"john.doe@example.com\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/api/club-members",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "club-members"]
+            }
+          }
+        },
+        {
+          "name": "Update Club Member",
+          "request": {
+            "method": "PUT",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"Jane\",\n  \"lastName\": \"Smith\",\n  \"email\": \"jane.smith@example.com\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/api/club-members/{{memberId}}",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "club-members", "{{memberId}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Club Member",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/club-members/{{memberId}}",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "club-members", "{{memberId}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Transactions",
+      "item": [
+        {
+          "name": "Create Transaction",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"memberId\": 1,\n  \"itemId\": 1,\n  \"quantityUsed\": 1\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/transactions",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["transactions"]
+            }
+          }
+        },
+        {
+          "name": "Get All Transactions",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/transactions",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["transactions"]
+            }
+          }
+        },
+        {
+          "name": "Get Upcoming Due Transactions",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/transactions/upcoming-due",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["transactions", "upcoming-due"]
+            }
+          }
+        },
+        {
+          "name": "Return Transaction (Borrowables Only)",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/transactions/{{transactionId}}/return",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["transactions", "{{transactionId}}", "return"]
+            },
+            "description": "Mark a borrowable transaction as returned. The response will include a 'returnedDate' property if successful. For consumables, this endpoint is not applicable."
+          }
+        }
+      ]
+    }
+  ]
+}

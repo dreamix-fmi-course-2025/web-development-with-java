@@ -1,6 +1,7 @@
 package bg.fmi.uni.inventorysystem.dto;
 
 import bg.fmi.uni.inventorysystem.model.InventoryItem;
+import lombok.Getter;
 
 import java.time.LocalDateTime;
 
@@ -26,8 +27,8 @@ public record InventoryItemDto(
                 item.getDescription(),
                 item.getQuantity(),
                 item.getSerialNumber(),
-                item.getUnitOfMeasurement(),
-                item.getCategory(),
+                item.getUnitOfMeasurement() != null ? item.getUnitOfMeasurement().name() : null,
+                item.getCategory() != null ? item.getCategory().name() : null,
                 item.isBorrowable(),
                 item.getAddedDate()
         );

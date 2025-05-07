@@ -1,56 +1,53 @@
 package bg.fmi.uni.inventorysystem.model;
 
-import lombok.ToString;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
-@ToString
-public class Transaction {
-    private static int idCounter = 1;
+import jakarta.persistence.*;
 
+@Entity
+@Data
+@NoArgsConstructor
+/**
+ * Transaction is the owning side of unidirectional relationships to ClubMember and InventoryItem.
+ */
+public class Transaction {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @ManyToOne
     private ClubMember member;
+
+    @ManyToOne
     private InventoryItem item;
-    private LocalDateTime borrowedDate;
+
+    private LocalDateTime transactionDate;
     private LocalDateTime dueDate;
     private Integer quantityUsed;
-    private boolean returned;
+    private LocalDateTime returnedDate; // Nullable, only set for borrowables when returned
 
-    public Transaction(ClubMember member, InventoryItem item, int days, int quantityUsed, boolean returned) {
-        this.id = idCounter++;
+    public Transaction(ClubMember member, InventoryItem item, int days, int quantityUsed) {
         this.member = member;
         this.item = item;
-        this.borrowedDate = LocalDateTime.now();
-        this.dueDate = borrowedDate.plusDays(days);
+        this.transactionDate = LocalDateTime.now();
+        if (item.isBorrowable()) {
+            this.dueDate = transactionDate.plusDays(days);
+        } else {
+            this.dueDate = null;
+        }
         this.quantityUsed = quantityUsed;
-        this.returned = returned;
+        this.returnedDate = null;
     }
 
-    public Integer getId() {
-        return id;
+    public LocalDateTime getReturnedDate() {
+        return returnedDate;
     }
 
-    public ClubMember getMember() {
-        return member;
+    public void setReturnedDate(LocalDateTime returnedDate) {
+        this.returnedDate = returnedDate;
     }
 
-    public InventoryItem getItem() {
-        return item;
-    }
-
-    public LocalDateTime getBorrowedDate() {
-        return borrowedDate;
-    }
-
-    public LocalDateTime getDueDate() {
-        return dueDate;
-    }
-
-    public boolean isReturned() {
-        return returned;
-    }
-
-    public void setReturned(boolean returned) {
-        this.returned = returned;
-    }
 }

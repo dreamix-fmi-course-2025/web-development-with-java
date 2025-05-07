@@ -111,7 +111,28 @@ erDiagram
 
 ---
 
-## Task 7: Add Borrowing Type to TransactionDto
+## Task 7: Add Phone Number to ClubMember
+
+- Add a `phoneNumber` column to the `club_member` table and update the entity, DTO, and demo data accordingly.
+
+---
+
+## Task 8: Logging and Exception Handling
+
+- Use your `Logger` to trace calls to create/update items and transactions.
+- Handle exceptions via `@ControllerAdvice` or `@ExceptionHandler`.
+
+---
+
+## Task 9: Test and Seed Data
+
+- Use provided SQL scripts to seed demo data.
+- Test all endpoints for CRUD and transaction flows.
+
+---
+
+
+## Extra: Task 10: Add Borrowing Type to TransactionDto
 
 - Update your `TransactionDto` (the object returned by your API for transaction operations) to include an `itemType` field.
     - This field should be set to `"BORROWABLE"` if the item is borrowable, or `"CONSUMABLE"` if not.
@@ -136,39 +157,10 @@ erDiagram
 
 ---
 
-## Task 8: Add Phone Number to ClubMember
-
-- Add a `phoneNumber` column to the `club_member` table and update the entity, DTO, and demo data accordingly.
-
----
-
-## Task 9: Logging and Exception Handling
-
-- Use your `Logger` to trace calls to create/update items and transactions.
-- Handle exceptions via `@ControllerAdvice` or `@ExceptionHandler`.
-
----
-
-## Task 10: Test and Seed Data
-
-- Use provided SQL scripts to seed demo data.
-- Test all endpoints for CRUD and transaction flows.
-
----
-
 ## 💡 Tips
 
 - Use your `InventoryItem` entity as a test subject before applying changes system-wide.
 - Build incrementally and test each step.
-
----
-
-## 🗃 Example DB Diagram
-
-> You can embed a diagram via:
-```
-![](images/inventory-db-diagram.png)
-```
 
 ---
 
